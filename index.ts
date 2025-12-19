@@ -12,7 +12,7 @@ const SUPABASE_URL = "https://twtwwncgwqlvfxcxiokv.supabase.co/functions/v1/gene
 
 // Your Supabase Anon Key (found in Project Settings > API)
 // This is safe to use client-side - it respects Row Level Security policies
-const SUPABASE_ANON_KEY = "sb_publishable_Kc4xIXnAZ27dq2nam4d-fg_1Qz0EOaU";
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR3dHd3bmNnd3FsdmZ4Y3hpb2t2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjYxNjIyMTMsImV4cCI6MjA4MTczODIxM30.Zc30_A-HJ7_3HewvMj3mGEsW4vhQKOdTKcdFJOObEzc";
 
 enum ANCESTRY {
   HUMAN = "h",
@@ -61,13 +61,10 @@ const editorCallback = async (editor: Editor, {gender, ancestry, family}: {gende
   }
 
   try {
+    // Edge Function is public (JWT verification disabled), no auth headers needed
     const resp = await requestUrl({
       url: url,
       method: 'GET',
-      headers: {
-        'apikey': SUPABASE_ANON_KEY,
-        'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
-      }
     });
     const name = resp.text;
     new Notice(`Name: ${name}`);
