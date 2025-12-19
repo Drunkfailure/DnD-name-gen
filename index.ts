@@ -19,11 +19,14 @@ enum ANCESTRY {
   DWARF = "d",
   ELF = "e",
   ORC = "o",
+  TIEFLING = "t",
+  GOBLIN = "g",
+  DRAGONBORN = "b",
 }
 
 enum GENDER {
-  MALE = "m",
-  FEMALE = "f",
+  MALE = "M",
+  FEMALE = "F",
   ANY = "a",
 }
 
@@ -140,6 +143,51 @@ export default class FantasyNameGenerator extends Plugin {
         id: "fantasy-name-insert-orc-male",
         name: "Insert fantasy name: Orc - Male",
         editorCallback: (editor: Editor) => editorCallback(editor, {ancestry: ANCESTRY.ORC, gender: GENDER.MALE})
+      },
+      {
+        id: "fantasy-name-insert-tiefling",
+        name: "Insert fantasy name: Tiefling",
+        editorCallback: (editor: Editor) => editorCallback(editor, {ancestry: ANCESTRY.TIEFLING}),
+      },
+      {
+        id: "fantasy-name-insert-tiefling-female",
+        name: "Insert fantasy name: Tiefling - Female",
+        editorCallback:  (editor: Editor) => editorCallback(editor, {ancestry: ANCESTRY.TIEFLING, gender: GENDER.FEMALE})
+      },
+      {
+        id: "fantasy-name-insert-tiefling-male",
+        name: "Insert fantasy name: Tiefling - Male",
+        editorCallback: (editor: Editor) => editorCallback(editor, {ancestry: ANCESTRY.TIEFLING, gender: GENDER.MALE})
+      },
+      {
+        id: "fantasy-name-insert-goblin",
+        name: "Insert fantasy name: Goblin",
+        editorCallback: (editor: Editor) => editorCallback(editor, {ancestry: ANCESTRY.GOBLIN}),
+      },
+      {
+        id: "fantasy-name-insert-goblin-female",
+        name: "Insert fantasy name: Goblin - Female",
+        editorCallback:  (editor: Editor) => editorCallback(editor, {ancestry: ANCESTRY.GOBLIN, gender: GENDER.FEMALE})
+      },
+      {
+        id: "fantasy-name-insert-goblin-male",
+        name: "Insert fantasy name: Goblin - Male",
+        editorCallback: (editor: Editor) => editorCallback(editor, {ancestry: ANCESTRY.GOBLIN, gender: GENDER.MALE})
+      },
+      {
+        id: "fantasy-name-insert-dragonborn",
+        name: "Insert fantasy name: Dragonborn",
+        editorCallback: (editor: Editor) => editorCallback(editor, {ancestry: ANCESTRY.DRAGONBORN}),
+      },
+      {
+        id: "fantasy-name-insert-dragonborn-female",
+        name: "Insert fantasy name: Dragonborn - Female",
+        editorCallback:  (editor: Editor) => editorCallback(editor, {ancestry: ANCESTRY.DRAGONBORN, gender: GENDER.FEMALE})
+      },
+      {
+        id: "fantasy-name-insert-dragonborn-male",
+        name: "Insert fantasy name: Dragonborn - Male",
+        editorCallback: (editor: Editor) => editorCallback(editor, {ancestry: ANCESTRY.DRAGONBORN, gender: GENDER.MALE})
       }
     ];
 
