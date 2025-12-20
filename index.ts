@@ -10,10 +10,6 @@ const insertName = (editor: Editor, name: string) => {
 // Format: https://<project-ref>.supabase.co/functions/v1/<function-name>
 const SUPABASE_URL = "https://twtwwncgwqlvfxcxiokv.supabase.co/functions/v1/generate-fantasy-name";
 
-// Your Supabase Anon Key (found in Project Settings > API)
-// This is safe to use client-side - it respects Row Level Security policies
-const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR3dHd3bmNnd3FsdmZ4Y3hpb2t2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjYxNjIyMTMsImV4cCI6MjA4MTczODIxM30.Zc30_A-HJ7_3HewvMj3mGEsW4vhQKOdTKcdFJOObEzc";
-
 enum ANCESTRY {
   HUMAN = "h",
   DWARF = "d",
@@ -29,17 +25,6 @@ enum GENDER {
   FEMALE = "f",
   ANY = "a",
 }
-
-type Event = {
-  _time: string;
-  path: string;
-  headers: Record<string, string>;
-  referrer: string;
-  gender?: string;
-  ancestry?: string;
-  family?: boolean;
-  name?: string;
-};
 
 type Family = boolean;
 
@@ -81,7 +66,7 @@ const editorCallback = async (editor: Editor, {gender, ancestry, family}: {gende
 
 export default class FantasyNameGenerator extends Plugin {
   onload() {
-    console.debug("loading DnD-name plugin");
+    console.debug("loading fantasy-name plugin");
 
     const commands = [
       {
@@ -197,6 +182,6 @@ export default class FantasyNameGenerator extends Plugin {
   }
 
   onunload() {
-    console.debug("unloading DnD-name plugin");
+    console.debug("unloading fantasy-name plugin");
   }
 }
